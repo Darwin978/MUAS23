@@ -29,6 +29,7 @@ public class ControladorEmpleado {
     this.vista=vista;
     vista.setVisible(true);
     }
+    //prueba2
       public void Iniciar_Control() {
           cargaLista("");
           
