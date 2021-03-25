@@ -135,6 +135,16 @@ public class ControladorNatural {
    
 
     private void grabarPersona() {
+        if ( vista.getTxtNombres().getText().equals("")|| vista.getTxtClave().getText().equals("")|| vista.getTxtCorreo().getText().equals("")||
+            vista.getTxtApellidos().getText().equals("")|| vista.getTxtCodigo().getText().equals("")|| vista.getTxtCelular().getText().equals("")||
+            vista.getTxtCorreo().getText().equals("")|| vista.getTxtRuc().getText().equals("")||vista.getTxtDireccion().getText().equals("")||
+            vista.getTxtUsuario().getText().equals("")||vista.getTxtTelefono().getText().equals("")||vista.getTxtCelular().getText().equals("")||
+            vista.getJblFoto().getIcon().equals(null)) {
+            JOptionPane.showMessageDialog(null, "Necesita llenar todas las casillas para poder registrarse");
+        }else{
+            if(esNumerico(vista.getTxtRuc().getText())){
+                
+           
         String codigo = vista.getTxtCodigo().getText();
         String idp = vista.getTxtRuc().getText();
         String nombre = vista.getTxtNombres().getText();
@@ -160,15 +170,34 @@ public class ControladorNatural {
             JOptionPane.showMessageDialog(vista, "ERROR");
         }
         
-        
-       
-        
-        
-//        
+        }
+            else{
+                System.out.println("Error prueba 1");
+            }
+        } 
     }
    
-
-        
+//    public boolean validar_campos(){
+//        char codigo = vista.getTxtRuc().addevt.getKeyChar();
+//        if ((codigo < '0' | codigo > '9') | (txtCedula.getText().length() >= 10)) {
+//            evt.consume();
+//        }
+//    }
+     
+    
+    public static boolean esNumerico(String cedula, String celular){     
+        try{
+        if(cedula!= null){
+            Integer.parseInt(cedula);
+            if(cedula.length()==10){
+                return true;
+            }
+        }
+    }catch(NumberFormatException nfe){
+         return false; 
+    }
+    return false;
+}
 
     
     private void Eliminar_Persona(){
